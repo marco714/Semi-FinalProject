@@ -22,8 +22,8 @@ with socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM) as s:
             if not data:
                 break
 
-            clean_data = data.replace(" ","")
-
+            clean_data = data.split(" ")
+            print(clean_data)
             number_words = len(clean_data)
             number_words = str(number_words)
 
