@@ -22,7 +22,13 @@ with socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM) as s:
             if not data:
                 break
 
-            clean_data = data.strip()
-            length_data = len(clean_data)
-            length_data = str(length_data)
-            clientsocket.send(bytes(length_data, "utf-8"))
+            clean_data = data.replace(" ","")
+
+            number_words = len(clean_data)
+            number_words = str(number_words)
+
+            number_character = len(data)
+            number_character = str(number_character)
+
+            msg = f"{number_words} {number_character}"
+            clientsocket.send(bytes(msg, "utf-8"))
